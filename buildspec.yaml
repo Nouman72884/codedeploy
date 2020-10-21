@@ -25,7 +25,7 @@ phases:
       - docker push 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:latest
       - printf '{"ImageURI":"%s"}' 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:latest  > imageDetail.json
       - sed -i 's/<APP_NAME>/'nginx'/g' appspec.yaml taskdef.json
-      - sed -i 's/<TASK_Definition>/'arn:aws:ecs:us-east-1:020046395185:task-definition/nginx:6'/g' appspec.yaml
+      - sed -i 's/<TASK_DEFINITION>/'arn:aws:ecs:us-east-1:020046395185:task-definition/nginx:6'/g' appspec.yaml
       - sed -i 's/<SERVICE_PORT>/80/g' appspec.yaml taskdef.json
       - sed -i 's/<AWS_ACCOUNT_ID>/020046395185/g' taskdef.json
       - sed -i 's/<MEMORY_RESV>/128/g' taskdef.json
