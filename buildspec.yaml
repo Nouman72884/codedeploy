@@ -11,7 +11,7 @@ phases:
       - chmod +x /tmp/cred.txt
       - . /tmp/cred.txt
       - echo Logging in to Amazon ECR...
-      - $($(aws ecr get-login --region us-east-1 --no-include-email))
+      - $(aws ecr get-login --region us-east-1 --no-include-email)
   build:
     commands:
       - echo Build started on `date`
