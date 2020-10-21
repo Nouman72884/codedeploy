@@ -16,7 +16,7 @@
         "environment": [
           {
             "name": "PORT",
-            "value": <SERVICE_PORT>
+            "value": "<SERVICE_PORT>"
           },
           {
             "name": "APP_NAME",
