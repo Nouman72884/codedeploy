@@ -16,19 +16,19 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image.....         
-      - docker build -t nginx:1.18 .
-      - docker tag nginx:1.18 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:1.18      
+      - docker build -t nginx2:1.18 .
+      - docker tag nginx2:1.18 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx2:1.18      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image....
-      - docker push 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:1.18
-      - printf '{"ImageURI":"%s"}' 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:1.18  > imageDetail.json
-      - sed -i 's/<APP_NAME>/'nginx'/g' appspec.yaml taskdef.json
+      - docker push 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx2:1.18
+      - printf '{"ImageURI":"%s"}' 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx2:1.18  > imageDetail.json
+      - sed -i 's/<APP_NAME>/'nginx2'/g' appspec.yaml taskdef.json
       - sed -i 's/<SERVICE_PORT>/80/g' appspec.yaml taskdef.json
       - sed -i 's/<AWS_ACCOUNT_ID>/020046395185/g' taskdef.json
       - sed -i 's/<MEMORY_RESV>/128/g' taskdef.json
-      - sed -i 's/<IMAGE_NAME>/'020046395185'\.dkr\.ecr\.'us-east-1'\.amazonaws.com\/'nginx'\:'1.18'/g' taskdef.json
+      - sed -i 's/<IMAGE_NAME>/'020046395185'\.dkr\.ecr\.'us-east-1'\.amazonaws.com\/'nginx2'\:'1.18'/g' taskdef.json
 artifacts:
   files: 
     - imageDetail.json
