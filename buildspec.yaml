@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker image..
+      - echo Pushing the Docker image....
       - docker push 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:1.18
       - printf '{"ImageURI":"%s"}' 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx:1.18  > imageDetail.json
       - sed -i 's/<APP_NAME>/'nginx'/g' appspec.yaml taskdef.json
