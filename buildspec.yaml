@@ -15,7 +15,7 @@ phases:
       - $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
   build:
     commands:
-      - scripts/codebuild-git-wrapper.sh "$REPO_URL" "$REPO_BRANCH" # These environment variables come from the CFN stack
+      - ./scripts/codebuild-git-wrapper.sh "$REPO_URL" "$REPO_BRANCH" # These environment variables come from the CFN stack
       - git log | head -100
       - echo Build started on `date`
       - echo Building the Docker image...          
