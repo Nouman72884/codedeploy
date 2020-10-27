@@ -20,6 +20,8 @@ phases:
       - docker tag nginx1:latest 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx1:latest      
   post_build:
     commands:
+      - GIT_COMMIT="$(git rev-parse --short HEAD)"
+      - echo $GIT_COMMIT
       - echo Build completed on `date`
       - echo Pushing the Docker image.......
       - docker push 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx1:latest
