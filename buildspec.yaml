@@ -20,6 +20,7 @@ phases:
       - docker tag nginx1:latest 020046395185.dkr.ecr.us-east-1.amazonaws.com/nginx1:latest      
   post_build:
     commands:
+      - export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
       - GIT_COMMIT="$(git rev-parse --short HEAD)"
       - echo $GIT_COMMIT
       - echo Build completed on `date`
